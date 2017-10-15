@@ -35,8 +35,8 @@
                         </li>
                     <?php endif; ?>
 
-                    <?php if (!$currentUser) : ?>
-                        <li class="nav-item <?php echo ($page == 'logout') ? 'active' : '' ?>">
+                    <?php if ($currentUser) : ?>
+                        <li class="nav-item ">
                             <a class="nav-link" href="logout.php">Đăng Xuất</a>
                         </li>
                     <?php endif; ?>

@@ -9,17 +9,17 @@
   $fullname = $_POST['fullname'];
   $success = true;
   // Kiểm tra xem email có trùng không
-  $stmt = $db->prepare("SELECT * FROM account WHERE email=$email");
+  $stmt = $db->prepare("SELECT * FROM account WHERE email=?");
   $stmt->execute(array($email));
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  if($user)//sai thì trả về false
+  if($user)//có trùng thì trả về false
   {
       $success = false;
   }
-  else// đúng thì thêm vào database
+  else// ko trùng thì thêm vào database
   {
-    $stmt = $db->prepare("INSERT INTO account (email, password, fullname) VALUE ('$email', '$password', '$fullname')");
+    $stmt = $db->prepare("INSERT INTO account (email, password, fullname) VALUE (?, ?, ?)");
     $stmt->execute(array($email, $password, $fullname));
     $insertId = $db->lastInsertId();
     $_SESSION['userId'] = $insertId;
