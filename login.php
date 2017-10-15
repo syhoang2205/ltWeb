@@ -37,14 +37,14 @@
   </div>
   <?php endif; ?>
 <?php else : ?>
-<form method="POST">
+<form class="padding" method="POST">
   <div class="form-group">
     <label for="email">Địa chỉ email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Điền email vào đây">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Điền email vào đây" required autocomplete="on" autofocus>
   </div>
   <div class="form-group">
     <label for="password">Mật khẩu</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây" required autocomplete="off" >
   </div>
   <button type="submit" class="btn btn-primary">Đăng nhập</button>
 </form>

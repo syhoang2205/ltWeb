@@ -30,28 +30,28 @@
   Đăng ký thành công. Trở về <a href="index.php">trang chủ</a>.
 </div>
 <?php else: ?>
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-danger" role="alert">
   Email đã tồn tại. <a href="register.php">Đăng Kí</a> Lại.
 </div>
 <?php endif; ?>
 
 <?php else: ?>
-<form method="POST">
+<form class="padding" method="POST">
   <div class="form-group">
     <label for="fullname">Họ và tên</label>
-    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Điền họ và tên vào đây">
+    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Điền họ và tên vào đây" required>
   </div>
   <div class="form-group">
     <label for="email">Địa chỉ email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Điền email vào đây">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Điền email vào đây" required>
   </div>
   <div class="form-group">
     <label for="password">Mật khẩu</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Điền mật khẩu vào đây" required>
   </div>
   <div class="form-check">
     <label class="form-check-label">
-      <input type="checkbox" name="agree-tos" class="form-check-input">
+      <input type="checkbox" name="agree-tos" class="form-check-input" required>
       Đồng ý điều khoản trang Web
     </label>
   </div>
