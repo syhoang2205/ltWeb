@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link rel="icon" type="image/png" sizes="32x32" href="icon1.png">
-    <title>BTCN05</title>
+    <title>BTCN06</title>
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -64,9 +64,7 @@
                             <li class="nav-item <?php echo ($page == 'login') ? 'active' : '' ?>">
                                 <a class="nav-link" href="login.php">Đăng Nhập <span class="sr-only">(current)</span></a>
                             </li>
-                        <?php endif; ?>
-
-                        <?php if (!$currentUser) : ?>
+                            
                             <li class="nav-item <?php echo ($page == 'register') ? 'active' : '' ?>">
                                 <a class="nav-link" href="register.php">Đăng Kí</a>
                             </li>
@@ -76,11 +74,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link" href="logout.php">Đăng Xuất</a>
                             </li>
-                        <?php endif; ?>
 
-                        <li class="nav-item">
-                            <?php if ($currentUser) : ?>
-                                <a class="nav-link disabled" href="#">
+                            <li class="nav-item <?php echo ($page == 'profile') ? 'active' : '' ?>">
+                                <a class="nav-link" href="profile.php">
                                     <?php echo $currentUser['fullname'] ?>
                                 </a>
                             <?php endif; ?>

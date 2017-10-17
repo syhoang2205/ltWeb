@@ -1,71 +1,90 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8887
--- Generation Time: Oct 15, 2017 at 01:03 PM
--- Server version: 5.6.34-log
--- PHP Version: 7.1.5
+-- Host: localhost:3306
+-- Generation Time: Oct 16, 2017 at 12:10 PM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `btcn05`
+-- Database: `btcn06`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `content` varchar(1024) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `userId`, `content`, `createdAt`) VALUES
+(1, 1, 'Em gái mưa@@', '2017-10-16 09:51:24'),
+(2, 1, 'Trời lại sắp mưa...', '2017-10-16 10:01:56'),
+(3, 2, 'Trời đang mưa', '2017-10-16 10:07:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
 --
 
 CREATE TABLE `account` (
   `id` int(11) NOT NULL,
   `fullname` varchar(255) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `account`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `account` (`id`, `fullname`, `email`, `password`) VALUES
-(1, 'Lê S? Hoàng', 'syhoang22@gmail.com', '$2y$10$JYn7xUCCs5MRMTiG0To3jOkAoSj9dRF0pzGlT.ZGJRrpZl1e1f.le'),
-(5, 'lê hoàng', 'hoang123@gmail.com', '$2y$10$q3vYxCyrfHoF5Bsn/gwNAeG2Q6Urpz5Bn/V8ghz440QcIlgCmvDz.'),
-(6, '123', '123@gmail.com', '$2y$10$yPOceLxN92SuOL8RXqE6G.ubAYVxa3qZK4rP0XJ1X2bZiVqMGEyAe'),
-(9, '321', '123321@gmail.com', '$2y$10$ILTMbua/5f1v2Iic4exH9Onp4Exfu.3wtjA9aZsVnI61Rs67L6mo.');
+INSERT INTO `account` (`id`, `fullname`, `phone`, `email`, `password`) VALUES
+(1, 'Lê S? Hoàng', 'syhoang22@gmail.com', '$2y$10$JYn7xUCCs5MRMTiG0To3jOkAoSj9dRF0pzGlT.ZGJRrpZl1e1f.le');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `account`
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uniqueEmail` (`email`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
